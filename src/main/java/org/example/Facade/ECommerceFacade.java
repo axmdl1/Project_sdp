@@ -1,4 +1,4 @@
-package org.example.EcommerceFacade;
+package org.example.Facade;
 
 import org.example.Service.InventoryService;
 import org.example.Service.PaymentService;
