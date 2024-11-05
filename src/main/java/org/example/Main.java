@@ -5,11 +5,15 @@ import org.example.Decorator.DiscountDecorator;
 import org.example.Facade.ECommerceFacade;
 import org.example.Observer.Customer;
 import org.example.Service.InventoryService;
+import org.example.Service.PaymentService;
 import org.example.model.Product;
 
 public class Main {
     public static void main(String[] args) {
-        ECommerceFacade eCommerceFacade = new ECommerceFacade();
+        InventoryService inventoryService = new InventoryService();
+        PaymentService paymentService = new PaymentService();
+
+        ECommerceFacade eCommerceFacade = new ECommerceFacade(inventoryService, paymentService);
 
         Product laptop = ProductFactory.createProduct("electronics", "Laptop", 1200.00);
         Product shirt = ProductFactory.createProduct("clothing", "T-Shirt", 20.00);
@@ -18,7 +22,6 @@ public class Main {
         System.out.println("Original Laptop Price: " + laptop.getPrice());
         System.out.println("Discounted Laptop Price: " + discountedLaptop.getPrice());
 
-        InventoryService inventoryService = new InventoryService();
         inventoryService.addProduct(laptop, 5);
         inventoryService.addProduct(shirt, 10);
 
@@ -31,7 +34,7 @@ public class Main {
         System.out.println("\nAdding laptops to inventory...");
         inventoryService.addProduct(laptop, 2);
 
-        System.out.println("\nAttempting to purchase a discounted laptop:");
+        System.out.println("\nAttempting to purchase a laptop:");
         eCommerceFacade.purchaseProduct(discountedLaptop, "creditcard");
 
         System.out.println("\nAttempting to purchase a shirt:");
@@ -42,4 +45,3 @@ public class Main {
         System.out.println("Shirts available: " + inventoryService.isAvailable(shirt));
     }
 }
-

@@ -5,7 +5,7 @@ import org.example.Strategy.PayPalPayment;
 import org.example.Strategy.PaymentStrategy;
 
 public class PaymentService {
-    public void processPayment(double amount, String paymentMethod) {
+    public boolean processPayment(double amount, String paymentMethod) {
         PaymentStrategy paymentStrategy;
         switch (paymentMethod.toLowerCase()) {
             case "creditcard":
@@ -18,5 +18,6 @@ public class PaymentService {
                 throw new IllegalArgumentException("Unsupported payment method: " + paymentMethod);
         }
         paymentStrategy.pay(amount);
+        return true;
     }
 }

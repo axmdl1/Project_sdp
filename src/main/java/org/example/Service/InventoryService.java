@@ -20,6 +20,11 @@ public class InventoryService {
         observers.remove(observer);
     }
 
+
+    public void reduceStock(Product product) {
+        inventory.put(product, inventory.getOrDefault(product, 0) - 1);
+    }
+
     public void notifyObservers(Product product) {
         for (Observer observer : observers) {
             observer.update(product);
