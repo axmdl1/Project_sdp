@@ -1,10 +1,12 @@
-package org.example;
+package org.example.model;
 
-public class Clothing implements Product {
+import org.example.model.Product;
+
+public class Electronics implements Product {
     private String name;
     private double price;
 
-    public Clothing(String name, double price) {
+    public Electronics(String name, double price) {
         this.name = name;
         this.price = price;
     }
