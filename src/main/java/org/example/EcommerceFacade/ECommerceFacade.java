@@ -1,6 +1,7 @@
 package org.example.EcommerceFacade;
 
 import org.example.Service.InventoryService;
+import org.example.Service.PaymentService;
 import org.example.model.Product;
 
 public class ECommerceFacade {

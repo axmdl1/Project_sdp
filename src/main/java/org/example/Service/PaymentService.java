@@ -1,5 +1,9 @@
 package org.example.Service;
 
+import org.example.Strategy.CreditCardPayment;
+import org.example.Strategy.PayPalPayment;
+import org.example.Strategy.PaymentStrategy;
+
 public class PaymentService {
     public void processPayment(double amount, String paymentMethod) {
         PaymentStrategy paymentStrategy;
